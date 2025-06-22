@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praveenkumar Dasari | DevOps Lead Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        html { scroll-behavior: smooth; }
+        :root {
+            --primary: #2563eb;
+            --hero-title: #fff;
+            --secondary: #0ea5e9;
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --header-bg: #1e293b;
+            --text: #1e293b;
+            --section-bg: #f8fafc;
+            --footer-bg: #1e293b;
+            --link: #2563eb;
+            --link-hover: #0ea5e9;
+            --highlight: #fff;
+            --project-shadow: 0 8px 32px rgba(37,99,235,0.10);
+        }
+        [data-theme="dark"] {
+            --primary: #60a5fa;
+            --secondary: #38bdf8;
+            --bg-gradient: linear-gradient(135deg, #181c25 0%, #232946 100%);
+            --header-bg: #181c25;
+            --text: #e0e7ef;
+            --section-bg: #22253a;
+            --footer-bg: #181c25;
+            --link: #a5d8ff;
+            --link-hover: #38bdf8;
+            --highlight: #232946;
+            --project-shadow: 0 8px 32px rgba(96,165,250,0.18);
+        }
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background: var(--bg-gradient);
+            color: var(--text);
+            transition: background 0.4s, color 0.4s;
+        }
+        header {
+            background: var(--header-bg);
+            color: #fff;
+            padding: 1.5em 2em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        nav h1 {
+            margin: 0;
+            font-size: 2.1em;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 1px 2px 8px #1112;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2em;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            padding: 0.3em 0.7em;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav a:hover, nav a:focus {
+            background: var(--primary);
+            color: #fff;
+            outline: none;
+        }
+        .theme-toggle {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 2.2em;
+            height: 2.2em;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-left: 1em;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover, .theme-toggle:focus {
+            background: var(--secondary);
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #fff;
+            text-align: center;
+            padding: 5em 2em 3em 2em;
+            margin-bottom: 2em;
+            border-radius: 0 0 32px 32px;
+            box-shadow: 0 8px 32px rgba(37,99,235,0.10);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -80px; left: -80px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, #fff3 0%, transparent 70%);
+            z-index: 0;
+            animation: float 8s ease-in-out infinite alternate;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1);}
+            100% { transform: translateY(30px) scale(1.1);}
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2em;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 24px #0002;
+            margin-bottom: 0.5em;
+            background: #fff;
+        }
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.3em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--hero-title);
+            text-shadow: 0 2px 16px #0008, 0 1px 0 #fff4;
+        }
+        [data-theme="dark"] .hero h2 {
+            color: var(--hero-title);
+            text-shadow: 0 2px 24px #000c, 0 1px 0 #fff2;
+        }
+        .hero p {
+            font-size: 1.3em;
+            margin: 0 auto;
+            max-width: 600px;
+            color: #e0f7fa;
+        }
+        [data-theme="dark"] .hero p {
+            color: #bae6fd;
+        }
+        .typewriter {
+            display: inline-block;
+            border-right: 2px solid #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 0.5s step-end infinite;
+            font-size: 2em;
+            min-height: 1.8em;
+        }
+        @keyframes blink-caret {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: #fff; }
+        }
+        section {
+            background: var(--section-bg);
+            padding: 3em 2em;
+            max-width: 900px;
+            margin: 2em auto;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, background 0.4s, color 0.4s;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.3em;
+            margin-top: 0;
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        [data-theme="dark"] h2 {
+            border-bottom: 2px solid #334155;
+        }
+        ul {
+            padding-left: 1.2em;
+        }
+        li {
+            margin-bottom: 1em;
+            font-size: 1.1em;
+        }
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            margin: 2em 0;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .timeline-event {
+            position: relative;
+            margin-bottom: 2.5em;
+            padding-left: 40px;
+        }
+        .timeline-event:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: var(--secondary);
+            border: 3px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px #0002;
+            z-index: 1;
+        }
+        .timeline-content {
+            background: var(--highlight);
+            border-radius: 10px;
+            box-shadow: var(--project-shadow);
+            padding: 1.5em 1.5em 1.2em 1.5em;
+            position: relative;
+            transition: background 0.4s, color 0.4s;
+        }
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            margin-bottom: 0.5em;
+            flex-wrap: wrap;
+        }
+        .timeline-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        .timeline-role {
+            font-size: 1em;
+            color: #64748b;
+            font-weight: 500;
+        }
+        [data-theme="dark"] .timeline-role {
+            color: #cbd5e1;
+        }
+        .timeline-period {
+            font-size: 0.95em;
+            color: #94a3b8;
+            margin-left: auto;
+        }
+        [data-theme="dark"] .timeline-period {
+            color: #bae6fd;
+        }
+        .timeline-location {
+            font-size: 1em;
+            color: #888;
+            margin-bottom: 0.5em;
+        }
+        [data-theme="dark"] .timeline-location {
+            color: #a5b4fc;
+        }
+        .timeline-details {
+            margin-top: 0.5em;
+        }
+        .timeline-details ul {
+            margin: 0;
+            padding-left: 1.2em;
+        }
+        .timeline-details li {
+            margin-bottom: 0.7em;
+        }
+        /* Resume link */
+        .resume-link {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.7em 1.5em;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin-top: 1em;
+            transition: background 0.2s, color 0.2s;
+        }
+        .resume-link:hover, .resume-link:focus {
+            background: var(--secondary);
+            color: #fff;
+        }
+        /* Contact links */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5em;
+            margin-top: 1em;
+        }
+        .contact-links a {
+            color: var(--link);
+            background: #fff;
+            border-radius: 6px;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 2px 8px #0001;
+            transition: background 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        .contact-links a:hover, .contact-links a:focus {
+            background: var(--primary);
+            color: #fff;
+        }
+        [data-theme="dark"] .contact-links a {
+            background: var(--highlight);
+            color: var(--link);
+        }
+        [data-theme="dark"] .contact-links a:hover, [data-theme="dark"] .contact-links a:focus {
+            background: var(--secondary);
+            color: #fff;
+        }
+        footer {
+            background: var(--footer-bg);
+            color: #fff;
+            text-align: center;
+            padding: 1.5em 0;
+            margin-top: 3em;
+            border-radius: 18px 18px 0 0;
+            font-size: 1em;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 1em;
+            }
+            .hero {
+                padding: 2.5em 1em 2em 1em;
+            }
+            .hero-content {
+                flex-direction: column;
+            }
+            section {
+                padding: 2em 1em;
+            }
+            .timeline {
+                padding-left: 18px;
+            }
+            .timeline-content {
+                padding: 1em 1em 0.8em 1em;
+            }
+            .contact-links {
+                flex-direction: column;
+                gap: 1em;
+            }
+        }
+
+        .skills-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Praveenkumar</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <img src="assets/profile.jpeg" alt="Praveenkumar Dasari" class="profile-pic" />
+            <h2>Hello, I'm Praveenkumar Dasari</h2>
+            <span class="typewriter" id="typewriter"></span>
+            <h3>
+                DevOps Lead | Cloud-Native Solution Architect
+            </h3>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate DevOps Lead with 9+ years of experience building secure, scalable, and automated infrastructure solutions. 
+            I specialize in Kubernetes, Terraform, CI/CD pipelines, cloud cost optimization, and observability tools. 
+            My focus is on delivering robust cloud-native architectures and empowering teams to ship faster and safer.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li><i class="fa-solid fa-gears"></i> <strong>DevOps Tools:</strong> Jenkins, GitLab CI/CD, GitHub Actions, Docker, Kubernetes, Terraform, Helm, ArgoCD, Buildpiper, CircleCI</li>
+            <li><i class="fa-solid fa-cloud"></i> <strong>Cloud Platforms:</strong> AWS, GCP, Azure, E2E Networks, Scaleway</li>
+            <li><i class="fa-solid fa-shield-halved"></i> <strong>Security Tools:</strong> Trivy, Clair Scan, SonarQube, Trend Micro Cloud One, HashiCorp Vault, AWS Security Hub, Guardduty, Network Firewall, Cloudsploit</li>
+            <li><i class="fa-solid fa-code"></i> <strong>Programming/Scripting:</strong> Bash, Python</li>
+            <li><i class="fa-solid fa-chart-line"></i> <strong>Monitoring & Logging:</strong> CloudWatch, ELK, Prometheus, Grafana, Uptime, Site24x7, Dynatrace, NewRelic, AppDynamics</li>
+            <li><i class="fa-solid fa-server"></i> <strong>Operating Systems:</strong> Linux (RHEL, CentOS, Ubuntu), Windows Server</li>
+            <li><i class="fa-solid fa-database"></i> <strong>Databases:</strong> MongoDB, MySQL, Oracle, PostgreSQL, Redis</li>
+            <li><i class="fa-solid fa-network-wired"></i> <strong>Networking & API Management:</strong> TCP/IP, DNS, DHCP, VPN, Firewall, AWS API Gateway</li>
+            <li><i class="fa-solid fa-sitemap"></i> <strong>Agile Tools:</strong> Jira, Jira ITSM, Opsgenie, Confluence</li>
+            <li><i class="fa-solid fa-code-branch"></i> <strong>Version Control:</strong> Git, GitLab, GitHub</li>
+        </ul>
+    </section>
+
+
+    <section id="projects">
+        <h2>Project Experience</h2>
+        <div class="timeline">
+            <!-- OSI Digital Pvt Ltd -->
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-title"><i class="fa-solid fa-cloud"></i> OSI Digital Pvt Ltd</span>
+                        <span class="timeline-role">DevOps Technical Lead</span>
+                        <span class="timeline-period">(Oct 2024 - Present)</span>
+                    </div>
+                    <div class="timeline-location"><strong>Client:</strong> USNews | Hyderabad</div>
+                    <div class="timeline-details">
+                        <ul>
+                            <li>Leading AWS infrastructure migration from EKS to ECS, focusing on cost reduction and improved monitoring.</li>
+                            <li>Managed EKS clusters and achieved 77% cost reduction through resource right-sizing and architectural improvements.</li>
+                            <li>Configured AWS API Gateway for secure, scalable API performance with authentication, throttling, logging, and caching.</li>
+                            <li>Implemented centralized logging with Fluent-bit and CloudWatch.</li>
+                            <li>Migrated CI/CD pipelines from CircleCI to Jenkins for cost and security improvements.</li>
+                            <li>Worked on Akamai Security (Network Firewall, WAF, Bot Management, CDN).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Valuefy Technologies Pvt Ltd -->
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-title"><i class="fa-solid fa-building"></i> Valuefy Technologies Pvt Ltd</span>
+                        <span class="timeline-role">Lead DevOps Engineer</span>
+                        <span class="timeline-period">(Jul 2019 - Sep 2024)</span>
+                    </div>
+                    <div class="timeline-location"><strong>Location:</strong> Mumbai</div>
+                    <div class="timeline-details">
+                        <ul>
+                            <li>Led a team of 6 DevOps professionals, driving CI/CD, security, and cloud automation for 80+ clients in BFSI sector.</li>
+                            <li>Architected scalable SaaS platforms and standardized infrastructure sizing across AWS, Azure, GCP, and on-premise.</li>
+                            <li>Integrated security tools (Trivy, Clair, SonarQube, Trend Micro) into CI/CD pipelines.</li>
+                            <li>Implemented IaC with Terraform, Helm, ArgoCD, and Kubernetes for multi-cloud consistency.</li>
+                            <li>Migrated monolithic apps to microservices using Kubernetes.</li>
+                            <li>Configured AWS API Gateway with custom authentication, rate limiting, logging, monitoring, and custom domains.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Restok Ordering Solutions Pvt Ltd -->
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-title"><i class="fa-solid fa-utensils"></i> Restok Ordering Solutions Pvt Ltd</span>
+                        <span class="timeline-role">DevOps Engineer</span>
+                        <span class="timeline-period">(Apr 2018 - Jun 2019)</span>
+                    </div>
+                    <div class="timeline-location"><strong>Location:</strong> Navi Mumbai</div>
+                    <div class="timeline-details">
+                        <ul>
+                            <li>Established automated CI/CD pipelines using AWS, Jenkins, GitLab CI/CD, and Docker.</li>
+                            <li>Developed automation scripts for build, deployment, and maintenance.</li>
+                            <li>Integrated Jasmine and Karma for enhanced test coverage.</li>
+                            <li>Managed Docker containers and monitored systems with CloudWatch, Opsgenie, and ELK stack.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Ensure Support Services India Ltd -->
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-title"><i class="fa-solid fa-server"></i> Ensure Support Services India Ltd</span>
+                        <span class="timeline-role">Sr Tech Support Engineer</span>
+                        <span class="timeline-period">(Oct 2017 - Apr 2018)</span>
+                    </div>
+                    <div class="timeline-location"><strong>Client:</strong> Trent Ltd | Mumbai</div>
+                    <div class="timeline-details">
+                        <ul>
+                            <li>Provided technical support for on-premise servers and database storage for retail warehouse management systems.</li>
+                            <li>Managed IBM System x3550 M3 servers (AIX OS), Power 710 Servers, and Active Directory services.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- ITSource Technologies Pvt Ltd -->
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-title"><i class="fa-solid fa-network-wired"></i> ITSource Technologies Pvt Ltd</span>
+                        <span class="timeline-role">IT Support Engineer L2</span>
+                        <span class="timeline-period">(Jun 2016 - Sep 2017)</span>
+                    </div>
+                    <div class="timeline-location"><strong>Client:</strong> Trent Ltd | Mumbai</div>
+                    <div class="timeline-details">
+                        <ul>
+                            <li>Installed and troubleshooted Windows/Linux OS and software.</li>
+                            <li>Managed LAN, wireless networks, and database storage for IBM servers and SAP clients.</li>
+                            <li>Logged tickets in Manage Engine Tool for incident/service requests.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education & Certifications</h2>
+        <ul>
+            <li><strong>Bachelor’s of Engineering in Electronics</strong> (2014) - University of Mumbai</li>
+            <li><strong>Red Hat Certified System Administrator (RHCSA)</strong> - EX200, ID: 180-139-925</li>
+            <li><strong>AWS Certified Solutions Architect Associate</strong> - ID: UC-JT74NV1J</li>
+        </ul>
+    </section>
+
+    <section id="resume">
+        <h2>Resume</h2>
+        <a href="assets/praveenkumar_resume.pdf" target="_blank" class="resume-link"><i class="fa-solid fa-download"></i> Download My Resume</a>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-links">
+            <a href="mailto:pdasari17@gmail.com" id="emailLink"><i class="fa-solid fa-envelope"></i> pdasari17@gmail.com</a>
+            <a href="https://linkedin.com/in/pdasari17" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/pkdasari" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Praveenkumar Dasari. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Section reveal on scroll
+        const sections = document.querySelectorAll('section');
+        const options = { threshold: 0.2 };
+        const reveal = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+        sections.forEach(section => { reveal.observe(section); });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+        // On load, set theme from localStorage or system
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved) setTheme(saved);
+            else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+        })();
+
+        // Typewriter effect for hero
+        const typewriter = document.getElementById('typewriter');
+        const roles = [
+            "AWS Expert",
+            "DevOps Lead",
+            "CI/CD Enthusiast",
+            "Kubernetes Expert",
+            "Terraform Specialist",
+            "Cloud Automation Enthusiast",
+            "Observability Advocate",
+            "9+ Years Experience",
+            "Cloud Cost Optimizer",
+            "Cloud-Native Solutions Architect"
+        ];
+        let roleIdx = 0, charIdx = 0, typing = true;
+        function type() {
+            if (typing) {
+                if (charIdx < roles[roleIdx].length) {
+                    typewriter.textContent += roles[roleIdx][charIdx++];
+                    setTimeout(type, 70);
+                } else {
+                    typing = false;
+                    setTimeout(type, 1200);
+                }
+            } else {
+                if (charIdx > 0) {
+                    typewriter.textContent = roles[roleIdx].substring(0, --charIdx);
+                    setTimeout(type, 30);
+                } else {
+                    typing = true;
+                    roleIdx = (roleIdx + 1) % roles.length;
+                    setTimeout(type, 400);
+                }
+            }
+        }
+        type();
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
